@@ -1,0 +1,99 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.dashboard-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #fdf3f3;
+  min-height: 100vh;
+}
+
+
+.top-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex: 1 1 200px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+
+  span {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    margin-top: 5px;
+  }
+}
+
+
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.chart-box {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  flex: 1 1 400px;
+  min-height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+}
+
+
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.table-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.dashboard-table th {
+  text-align: left;
+  padding: 12px 10px;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #eee;
+  color: #666;
+}
+
+.dashboard-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #444;
+}
+
+.dashboard-table tr:hover {
+  background-color: #fafafa;
+}

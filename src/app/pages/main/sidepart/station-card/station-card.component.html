@@ -1,0 +1,41 @@
+<div class="station-card">
+  <div class="station-header">
+    <img src="/assets/icons/asma.svg" alt="station icon" />
+    <h3>{{ station.name }}</h3>
+    <button class="more-btn">•••</button>
+  </div>
+
+  <hr />
+
+  <div class="station-info-grid">
+    <div class="grid-row">
+      <div class="grid-item">
+        <span class="label">Total Sales:</span>
+        <span class="value">{{ station.totalSales | number }} m³</span>
+      </div>
+      <div class="grid-item">
+        <span class="label">Compression State:</span>
+        <span class="value">{{ station.compressionState }}</span>
+      </div>
+      <div class="grid-item">
+        <span class="label">Max Transaction / hour:</span>
+        <span class="value">{{ station.maxTransaction }}</span>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-item">
+        <span class="label">Total Value:</span>
+        <span class="value">{{ station.totalValue }} EGP</span>
+      </div>
+      <div class="grid-item">
+        <span class="label">Total Transaction Count:</span>
+        <span class="value">{{ station.totalTransaction }}</span>
+      </div>
+      <div class="grid-item">
+        <span class="label">Max Transaction Date-Time:</span>
+        <span class="value">{{ station.maxTransactionDate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

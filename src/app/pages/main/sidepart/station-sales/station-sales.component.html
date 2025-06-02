@@ -1,0 +1,20 @@
+<div class="station-item">
+  <div class="station-info">
+    <img src="/assets/icons/asma.svg" alt="Station" class="station-icon" />
+    <span class="station-name">{{ station.name }}</span>
+    <span class="station-value">
+      {{ station.value }}
+      <span *ngIf="station.value !== 'NM'">m³</span>
+    </span>
+  </div>
+
+  <div class="progress-bar">
+    <div
+      class="progress-fill"
+      [ngStyle]="{
+        width: station.progress + '%',
+        backgroundColor: station.value === 'NM' ? '#B4C7E7' : '#f99fb9'
+      }"
+    ></div>
+  </div>
+</div>

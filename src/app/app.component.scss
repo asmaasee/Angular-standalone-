@@ -1,0 +1,26 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+
+  app-aside {
+    flex-shrink: 0;
+     height: 100%;// يخلي السايدبار حجمه ثابت
+  }
+
+  .content {
+    flex: 1; // تاخد باقي الشاشة
+    display: flex;
+    flex-direction: column; // نخلي الهيدر فوق والباقي تحت
+
+    app-header {
+      flex-shrink: 0;
+       width: 100%;// الهيدر ياخد مساحته فقط
+    }
+
+    .page-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+  }
+}

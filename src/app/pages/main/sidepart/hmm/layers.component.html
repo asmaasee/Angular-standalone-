@@ -1,0 +1,77 @@
+<div class="tasks-wrapper">
+  <div class="tasks-list">
+    <div class="tasks-header">
+      <h2>System Tasks</h2>
+      <button class="add-task-btn" (click)="addTask()">ADD TASK</button>
+    </div>
+
+    @for (task of tasks; track task.title) {
+      <div class="task-card" [class.completed]="task.checked">
+        <input type="checkbox" [(ngModel)]="task.checked" (change)="saveTasks()" />
+
+        <div class="task-details">
+          <h4>{{ task.title || '(No Title)' }}</h4>
+          <p>{{ task.description || '(No Description)' }}</p>
+
+          <div class="subtasks-inline" *ngIf="task.subtasks?.length">
+            @for (sub of task.subtasks; track sub.text) {
+              <label class="circle-check">
+                <input type="checkbox" [checked]="sub.done" (change)="toggleSubtask(task, sub)" />
+                <span>{{ sub.text }}</span>
+              </label>
+            }
+          </div>
+        </div>
+
+        <div class="task-actions">
+          <span class="task-progress">{{ task.progress }}%</span>
+          <button (click)="editTask(task)"><i class="material-icons">edit</i></button>
+          <button (click)="deleteTask(task)"><i class="material-icons">delete</i></button>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="tasks-summary">
+    <h3 class="title"> Overall Progress</h3>
+    <div
+      class="progress-circle"
+      [style.background]="
+        'conic-gradient(#1976d2 ' + overallProgress + '%, #eee 0)'
+      "
+    >
+      <div class="percentage">{{ overallProgress }}%</div>
+    </div>
+
+    <div class="summary-box blue">📋 {{ tasks.length }} Total Tasks</div>
+    <div class="summary-box green">✅ {{ completedTasks }} Completed</div>
+    <div class="summary-box orange">⏳ {{ inProgressTasks }} In Progress</div>
+  </div>
+</div>
+
+<!--  Edit Modal -->
+<div class="edit-modal" *ngIf="editingTask">
+  <div class="modal-content">
+    <h3>Edit Task</h3>
+
+    <label>Title</label>
+    <input [(ngModel)]="editingTask.title" type="text" />
+
+    <label>Description</label>
+    <textarea [(ngModel)]="editingTask.description"></textarea>
+
+    <div class="subtasks-wrapper styled" *ngIf="editingTask.subtasks?.length">
+      @for (sub of editingTask.subtasks; track sub.text) {
+        <label class="circle-check">
+          <input type="checkbox" [(ngModel)]="sub.done" />
+          <span>{{ sub.text }}</span>
+        </label>
+      }
+    </div>
+
+    <div class="modal-actions">
+      <button class="save" (click)="saveTaskEdits()">Save</button>
+      <button class="cancel" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+</div>

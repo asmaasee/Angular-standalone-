@@ -1,0 +1,77 @@
+@use "variables" as *;
+@use "typography" as *;
+
+.box {
+  background-color: $white-color;
+  border-radius: 24px;
+  padding: 25px 0 40px 25px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+  position: relative;
+  line-height: 1;
+  height: 100%;
+
+  .price {
+    width: 100%;
+
+    h3 {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      color: $main-text-color;
+      font-family: $roboto-font-family;
+      font-weight: $regular;
+      font-size: 16px;
+
+      .number {
+        font-size: 25px;
+        font-weight: $bold;
+        margin: 0;
+      }
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    p {
+      font-family: $montserrat-font-family;
+      font-weight: $bold;
+      font-size: 14px;
+      width: 90%;
+      color: $main-text-color;
+      margin-bottom: 8px;
+    }
+    .type-label {
+  margin-top: 12px;
+}
+
+    .arrow-stat {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      font-family: $roboto-font-family;
+      font-weight: $regular;
+      font-size: 20px;
+      i {
+        font-size: 30px;
+      }
+
+      &.arrow-up {
+        color: #00cbc0;
+      }
+
+      &.arrow-down {
+        color: #ff9595;
+      }
+
+      &.arrow-neutral {
+        color: gray;
+      }
+    }
+  }
+}

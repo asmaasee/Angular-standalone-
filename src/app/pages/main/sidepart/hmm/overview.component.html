@@ -1,0 +1,87 @@
+<div class="dashboard-layout">
+
+  <div class="right-side">
+    <app-hourly-sales></app-hourly-sales>
+
+    <div class="station-sales-wrapper">
+      <h3 class="sales-title">Sales by Station</h3>
+
+      <div class="station-sales-list">
+        <app-station-sales
+          *ngFor="let station of [
+            { name: 'STATION NAME DUMMY', value: '62721', progress: 60 },
+            { name: 'STATION NAME DUMMY', value: '62721', progress: 40 },
+            { name: 'STATION NAME DUMMY', value: 'NM', progress: 100 }
+          ]"
+          [station]="station"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="left-content">
+
+    <div class="stats-box-wrapper">
+      <div class="stats-container">
+        @for (stat of statisticsList(); track stat) {
+          <app-total-statistics
+            [totalValue]="stat.totalValue"
+            [currency]="stat.currency"
+            [totalType]="stat.totalType"
+            [incrementalValue]="stat.incrementalValue"
+            [arrowDirection]="stat.arrowDirection"
+            [coloredIncremental]="stat.coloredIncremental"
+          ></app-total-statistics>
+        }
+      </div>
+    </div>
+
+
+    <div class="switcher-wrapper">
+      <div class="switcher-container">
+        <button
+          class="switcher-btn"
+          [class.active]="currentView() === 'graph'"
+          (click)="switchView('graph')"
+        >
+          <img src="/assets/icons/08.svg" alt="Graph Icon" class="switcher-icon" />
+          <span>GRAPH</span>
+        </button>
+
+        <button
+          class="switcher-btn"
+          [class.active]="currentView() === 'list'"
+          (click)="switchView('list')"
+        >
+          <i class="material-icons">list</i>
+          <span>LIST</span>
+        </button>
+      </div>
+    </div>
+
+
+    @if (currentView() === 'graph') {
+  <div class="custom-chart-box">
+    <app-custom-summary-chart />
+  </div>
+}
+
+
+    @if (currentView() === 'list') {
+      <div class="scrollable-section">
+        <div class="station-list">
+          @for (station of stationsList(); track station.name) {
+            <app-station-card [station]="station" />
+          }
+        </div>
+
+
+        <div class="load-more-wrapper">
+          <button class="load-more-btn" (click)="loadMoreStations()">
+            تحميل المزيد
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</div>

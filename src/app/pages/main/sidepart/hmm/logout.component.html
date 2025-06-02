@@ -1,0 +1,122 @@
+<div class="auth-container">
+  <div class="auth-box">
+
+    <div class="switcher">
+      <button (click)="switchView('login')" [class.active]="view === 'login'">تسجيل الدخول</button>
+      <button (click)="switchView('signup')" [class.active]="view === 'signup'">إنشاء حساب</button>
+    </div>
+
+
+    <form *ngIf="view === 'login'" (ngSubmit)="login()">
+      <h2>تسجيل الدخول</h2>
+
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="loginEmail"
+        placeholder="الإيميل"
+        required
+      />
+
+      <div class="password-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="loginPassword"
+          placeholder="كلمة المرور"
+          required
+        />
+        <i class="eye-icon" (click)="showPassword = !showPassword">
+          {{ showPassword ? '🙈' : '👁️' }}
+        </i>
+      </div>
+
+      <button type="submit">دخول</button>
+
+      <button type="button" class="forgot-btn" (click)="forgotPassword()">نسيت كلمة المرور؟</button>
+    </form>
+
+
+    <form *ngIf="view === 'signup'" (ngSubmit)="signup()">
+      <h2>إنشاء حساب جديد</h2>
+
+      <input type="text" [(ngModel)]="fullName" name="fullName" placeholder="الاسم الكامل" required />
+
+      <select [(ngModel)]="country" name="country" required>
+        <option *ngFor="let c of countries" [ngValue]="c">{{ c.name }} ({{ c.code }})</option>
+      </select>
+
+      <input
+        type="tel"
+        [(ngModel)]="phone"
+        name="phone"
+        placeholder="رقم الهاتف"
+        required
+        pattern="[0-9]*"
+        inputmode="numeric"
+      />
+
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="signupEmail"
+        placeholder="الإيميل"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      />
+
+      <div class="password-wrapper">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="signupPassword"
+          placeholder="كلمة المرور"
+          required
+          (ngModelChange)="checkPasswordStrength(password)"
+        />
+        <i class="eye-icon" (click)="showPassword = !showPassword">
+          {{ showPassword ? '🙈' : '👁️' }}
+        </i>
+      </div>
+
+
+      <div class="password-strength" *ngIf="passwordStrength">
+        <span
+          [ngClass]="{
+            'weak': passwordStrength === 'weak',
+            'medium': passwordStrength === 'medium',
+            'strong': passwordStrength === 'strong'
+          }"
+        >
+          {{
+            passwordStrength === 'strong'
+              ? 'قوية ✅'
+              : passwordStrength === 'medium'
+              ? 'متوسطة ⚠️'
+              : 'ضعيفة ❌'
+          }}
+        </span>
+      </div>
+
+      <div class="password-wrapper">
+        <input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="تأكيد كلمة المرور"
+          required
+        />
+        <i class="eye-icon" (click)="showConfirmPassword = !showConfirmPassword">
+          {{ showConfirmPassword ? '🙈' : '👁️' }}
+        </i>
+      </div>
+
+      <button type="submit">تسجيل</button>
+
+
+      <div class="success-message" *ngIf="successMessage">
+        {{ successMessage }}
+      </div>
+    </form>
+  </div>
+</div>

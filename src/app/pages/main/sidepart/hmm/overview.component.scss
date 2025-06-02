@@ -1,0 +1,248 @@
+@use "variables" as *;
+@use "typography" as *;
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.right-side {
+  width: 350px;
+  flex-shrink: 0;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+  border-left: 1px solid #eee;
+}
+
+
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+
+.switcher-container {
+  display: flex;
+  position: Bottom ;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+
+}
+
+
+.scrollable-section {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding-right: 10px;
+}
+
+
+.station-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.station-sales-wrapper {
+  .sales-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .station-sales-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .station-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #223049;
+    .station-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .station-name {
+      flex-grow: 1;
+      margin-left: 8px;
+    }
+    .station-value {
+      font-weight: bold;
+    }
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color:  #fff1f7;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}
+
+//
+.switcher-container {
+  display: flex;
+  background-color: #fff1f7;
+  padding: 4px;
+  border-radius: 50px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  gap: 0;
+  margin-left: auto; }
+
+.switcher-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease-in-out;
+
+  i,
+  .switcher-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  span {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  &.active {
+    background-color: #f99fb9;
+    color: white;
+
+    i,
+    .switcher-icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+
+  app-total-statistics {
+    flex: 0 0 calc(25% - 24px);
+    max-width: calc(25% - 24px);
+    min-height: 220px;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    ::ng-deep {
+      h3 {
+        font-size: 30px;
+      }
+
+      .number {
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+
+      .arrow-stat {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.load-more-btn {
+  margin: 30px auto;
+  display: block;
+  padding: 10px 20px;
+  background-color: #f99fb9;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #e77aa3;
+  }
+}
+
+.load-more-wrapper {
+  text-align: center;
+  margin: 20px 0;
+
+  .load-more-btn {
+    background-color: #f4a1cb;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #f4a1cb;
+    }
+  }
+}

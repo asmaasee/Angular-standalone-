@@ -1,0 +1,174 @@
+@use 'variables' as *;
+@use 'typography' as *;
+@use 'mixins' as mixins;
+
+
+%pointer {
+  .pointer {
+    bottom: 0;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: -12px;
+    background-color: $main-pink;
+    border-radius: 50%;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  gap: 2rem;
+  background-color: #f9f2f2;
+
+
+  .left-side {
+    @include mixins.flex(row, flex-start, center, 4rem);
+
+    .box-container {
+      @include mixins.flex(row, flex-start, center, 0.7rem);
+      position: relative;
+
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+        font-family: $roboto-font-family;
+        font-weight: $regular;
+        line-height: initial;
+        color: $main-text-color;
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 10px;
+      }
+
+      i {
+        color: #3d5161;
+        font-size: 27px;
+        cursor: pointer;
+      }
+
+      img {
+        width: 30px;
+      }
+
+      @extend %pointer;
+    }
+  }
+
+  .switcher-container {
+    @include mixins.flex(row, space-evenly, center);
+    border-radius: 50px;
+    width: 400px;
+    cursor: pointer;
+    background-color: $body-bg;
+
+
+    .today-date,
+    .yesterday-date,
+    .last-week-date {
+      width: 100%;
+      height: 30px;
+      @include mixins.flex-center;
+      border-radius: 50px;
+      position: relative;
+      @include mixins.smooth;
+
+      h3 {
+        margin: 0;
+        font-family: $montserrat-font-family;
+        color: $main-text-color;
+        font-size: 12px;
+        font-weight: $medium;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+      }
+
+      &.active {
+        background-color: $pink-color;
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50px;
+          left: 0;
+          z-index: -1;
+          background-color: $main-pink;
+
+        }
+
+        h3 {
+          color: $white-color;
+        }
+      }
+    }
+  }
+
+  .right-side {
+    @include mixins.flex(row, flex-start, center, 2rem);
+
+    .filter-start,
+    .filter-end {
+      @include mixins.flex(row, flex-start, center, 0.7rem);
+      position: relative;
+
+      i {
+        color: $pink-color;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .text-placeholder p {
+        font-family: $roboto-font-family;
+        color: $main-text-color;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+//  PrimeNG calendar styles
+:host::ng-deep {
+  .p-inputtext {
+    border: none;
+    border-bottom: 2px solid $main-text-color;
+    border-radius: 0;
+    font-size: 16px;
+    background: transparent;
+    padding-bottom: 6px;
+
+  }
+
+  .p-inputtext::placeholder {
+    font-size: 16px;
+    color: $main-text-color;
+  }
+
+  .p-datepicker-trigger {
+    background: transparent;
+    border: none;
+    color: $main-text-color;
+    border-bottom: 2px solid $main-text-color;
+    border-radius: 0;
+  }
+
+  .p-inputtext:enabled:focus,
+  .p-button:enabled:hover {
+    box-shadow: none !important;
+    border-bottom: 2px solid $main-text-color !important;
+
+  }
+}
+

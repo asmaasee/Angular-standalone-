@@ -1,0 +1,42 @@
+
+.station-item {
+  margin-bottom: 20px;
+}
+
+.station-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  .station-icon {
+    width: 28px;
+    height: auto;
+  }
+
+  .station-name {
+    font-weight: bold;
+    color: #2c3e50;
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .station-value {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+}
+
+.progress-bar {
+  margin-top: 8px;
+  background-color: #eee;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+  }
+}

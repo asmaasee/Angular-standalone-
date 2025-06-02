@@ -1,0 +1,54 @@
+@use 'variables' as *;
+@use 'typography' as *;
+@use 'mixins' as *;
+@use 'reset' as *;
+
+/* ✅ كود تعديل الموبايل */
+@media (max-width: 768px) {
+  body {
+    background-color: #f8f8f8 !important;
+  }
+
+  .sidebar,
+  .aside {
+    display: none !important;
+  }
+
+  .form-container,
+  .register-box {
+    width: 90% !important;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  button {
+    width: 100% !important;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-container,
+  .register-box {
+    padding: 10px;
+    width: 95% !important;
+  }
+}
+body::after {
+  content: '🔥 Live Version Active';
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 99999;
+  }
+}

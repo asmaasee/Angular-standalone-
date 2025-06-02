@@ -1,0 +1,86 @@
+<div class="dashboard-page">
+  <!-- الكروت العلوية -->
+  <div class="top-cards">
+    <div class="card">Total Users</div>
+    <div class="card">Total Sales</div>
+    <div class="card">Active Stations</div>
+  </div>
+
+  <!-- الشارتات -->
+  <div class="charts-section">
+    <div class="chart-box">
+      <h3>Line Chart – Performance</h3>
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h3>Bar Chart – Station Sales</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+
+  <!-- جدول العمليات الأخيرة -->
+  <div class="table-section">
+    <h3>Recent Transactions</h3>
+    <table class="dashboard-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Station</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Asmaa</td>
+          <td>Station A</td>
+          <td>1500 EGP</td>
+          <td>2025-05-23</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Ali</td>
+          <td>Station B</td>
+          <td>800 EGP</td>
+          <td>2025-05-22</td>
+        </tr>
+        <!-- بيانات إضافية -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  import Chart from 'chart.js/auto';
+
+  setTimeout(() => {
+    new Chart(document.getElementById('lineChart'), {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+          label: 'Performance',
+          data: [65, 59, 80, 81, 56],
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Station A', 'Station B', 'Station C'],
+        datasets: [{
+          label: 'Sales',
+          data: [300, 500, 200],
+          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+        }]
+      }
+    });
+  }, 0);
+</script>
