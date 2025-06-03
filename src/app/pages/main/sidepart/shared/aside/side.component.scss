@@ -13,6 +13,7 @@ aside {
   position: sticky;
   top: 0;
   z-index: 9999;
+  overflow: visible !important;
 
   .main-logo {
     > img {
@@ -43,6 +44,60 @@ aside {
           filter: brightness(150%);
         }
       }
+    }
+  }
+}
+
+
+  @media (max-width: 768px) {
+  aside {
+    width: 65px;
+    border-radius:  0 15px 15px 0; // ✅ كيرف ثابت للموبايل
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    padding: 10px 0;
+
+    .main-logo {
+      > img {
+        width: 50px;
+        top: 20px;
+        left: 5px;
+      }
+
+      ul {
+        padding: 60px 0 20px;
+
+        li {
+          padding: 10px 0;
+
+          a img {
+            width: 22px;
+          }
+
+          a.active-link img {
+            transform: scale(1.1);
+          }
+
+          &:last-of-type {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  .main-layout {
+    flex-direction: column;
+
+    app-aside {
+      position: fixed;
+    }
+
+    .content {
+      margin-left: 65px; // ✅ مساحة للسايدبار الصغير
     }
   }
 }

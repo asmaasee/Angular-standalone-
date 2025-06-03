@@ -1,11 +1,11 @@
-//  Flex Center
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Flex Advanced
+
 @mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -14,14 +14,14 @@
   gap: $gap;
 }
 
-//  Grid Layout
+
 @mixin grid($cols: 2, $gap: 1rem) {
   display: grid;
   grid-template-columns: repeat($cols, 1fr);
   gap: $gap;
 }
 
-//  Responsive Breakpoints
+
 @mixin respond($breakpoint) {
   @if $breakpoint == sm {
     @media (max-width: 576px) { @content; }
@@ -36,19 +36,17 @@
   }
 }
 
-//  Smooth Transitions
 @mixin smooth($prop: all, $time: 0.3s, $ease: ease-in-out) {
   transition: $prop $time $ease;
 }
 
-//  Text Overflow Ellipsis
 @mixin ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-// Reset Button Style
+
 @mixin button-reset {
   border: none;
   background: none;

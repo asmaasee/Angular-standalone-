@@ -6,7 +6,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden  !important; //  يمنع السكرول العام
+  overflow-x: hidden; //  يمنع السكرول العام
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 

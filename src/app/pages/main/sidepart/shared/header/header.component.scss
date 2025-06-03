@@ -22,6 +22,13 @@ header {
   padding: 20px 60px;
   gap: 2rem;
   background-color: #f9f2f2;
+   position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  // ✅ نضيف ظل بسيط ليه
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
 
   .left-side {
@@ -68,7 +75,7 @@ header {
     border-radius: 50px;
     width: 400px;
     cursor: pointer;
-    background-color: $body-bg;
+    background-color: $pink-bg;
 
 
     .today-date,
@@ -92,7 +99,7 @@ header {
       }
 
       &.active {
-        background-color: $pink-color;
+        background-color: $main-pink;
 
         &::before {
           content: "";
@@ -122,7 +129,7 @@ header {
       position: relative;
 
       i {
-        color: $pink-color;
+        color: $main-pink;
         font-size: 30px;
         cursor: pointer;
       }
@@ -172,3 +179,88 @@ header {
   }
 }
 
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    .switcher-container {
+      flex-direction: column;
+      gap: 8px;
+      width: 100% !important;
+
+      .today-date,
+      .yesterday-date,
+      .last-week-date {
+        height: 34px;
+        padding: 6px 12px;
+        border-radius: 12px;
+        h3 {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+//
+@media (max-width: 768px) {
+  .mobile-menu {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .date-option {
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background-color: $main-pink;
+        color: white;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: $main-pink;
+
+      }
+    }
+
+    .filter-start,
+    .filter-end {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      i {
+        font-size: 20px;
+        color: $pink-color;
+      }
+
+      .p-calendar {
+        flex: 1;
+      }
+    }
+  }
+
+  .mobile-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-top: -15px;
+    margin-right: -150px ;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 999;
+  }
+}
