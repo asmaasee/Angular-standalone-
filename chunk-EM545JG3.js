@@ -1,0 +1,1 @@
+import{Cb as a,Sa as o,kb as n,lb as i,qc as s}from"./chunk-AOM3OOSJ.js";import"./chunk-ACKELEN3.js";var m=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=o({type:e,selectors:[["app-notifications"]],decls:2,vars:0,template:function(t,c){t&1&&(n(0,"p"),a(1,"notifications works!"),i())},dependencies:[s],encapsulation:2})};export{m as NotificationsComponent};

@@ -1,0 +1,1 @@
+import{Sa as n,qc as o}from"./chunk-AOM3OOSJ.js";import"./chunk-ACKELEN3.js";var s=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["app-settings"]],decls:0,vars:0,template:function(t,p){},dependencies:[o],encapsulation:2})};export{s as SettingsComponent};
