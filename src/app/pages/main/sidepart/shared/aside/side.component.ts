@@ -11,12 +11,12 @@ import { RouterModule } from '@angular/router';
 })
 export class AsideComponent {
   asideList = [
-    { logo: '/assets/icons/speedometer-svgrepo-com.svg', route: '/overview' },
-    { logo: '/assets/icons/dashboard.svg', route: '/dashboard' },
-    { logo: '/assets/icons/layers.svg', route: '/layers' },
-    { logo: '/assets/icons/889.svg', route: '/settings' },
-    { logo: '/assets/icons/99.svg', route: '/notifications' },
-    { logo: '/assets/icons/logout-svgrepo-com.svg', route: '/logout' },
+    { logo: './assets/icons/speedometer-svgrepo-com.svg', route: '/overview' },
+    { logo: './assets/icons/dashboard.svg', route: '/dashboard' },
+    { logo: './assets/icons/layers.svg', route: '/layers' },
+    { logo: './assets/icons/889.svg', route: '/settings' },
+    { logo: './assets/icons/99.svg', route: '/notifications' },
+    { logo: './assets/icons/logout-svgrepo-com.svg', route: '/logout' },
   ];
 
   trackFn(index: number, item: any) {
